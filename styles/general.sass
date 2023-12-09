@@ -1,0 +1,125 @@
+header
+ height: 300px
+ background: linear-gradient(360deg, #dbfff3, transparent)
+
+ >div
+    width: 100%
+    max-width: 1450px
+    margin: auto
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+ h1 
+    width: 40%
+    font-size: 40px
+    text-transform: uppercase
+
+
+ .topNav
+    display: flex
+    justify-content: space-between
+    align-content: center
+    ul
+        display: flex
+        text-decoration: none
+        list-style: none
+        gap: 15px
+        margin: 20px 0 0 0 
+        li 
+            font-weight: 600
+            font-size: 16px
+
+footer
+    background-color: #333
+    color: #fff
+    padding: 10px
+    text-align: center
+
+main 
+    width: 100%
+    padding: 80px 30px
+    min-height: 590px
+    
+
+.home_body
+    display: flex
+    flex-direction: column
+    gap: 50px
+    
+    .card
+        display: flex
+        flex-direction: row
+        gap: 30px
+        justify-content: center
+        align-items: center
+        &:nth-child(even)
+            direction: rtl
+        .content
+            width: 35%
+
+.about_us_list
+    list-style: none
+    display: flex
+    flex-direction: column
+
+.events_page
+    display: flex
+    flex-direction: row 
+    justify-content: center
+    gap: 20px
+    .card
+        position: relative
+        h2 
+            position: absolute
+            top: 50%
+            text-align: center
+            font-size: 55px
+            color: white
+            text-transform: uppercase
+            text-shadow: 1px 1px 20px black
+
+a 
+    color: black
+
+.cat_events
+    .content
+        display: grid
+        grid-template-columns: auto auto auto
+        width: 100%
+        gap: 30px
+
+        .card
+            display: flex 
+            flex-direction: column
+            width: 70%
+            
+.single_event
+    .email_registration
+        margin: 20px 0 0 0
+    label
+        display: flex
+        font-weight: 700
+        font-size: 1.25rem
+        text-transform: uppercase
+    input
+        height: 40px
+        min-width: 350px
+        font-size: 16px
+        border-radius: 5px
+        border: 1px solid #ccc
+        margin: 20px 0 0 0
+        padding: 10px 50px 10px 5px
+        width: 20%
+    button
+        height: 40px
+        margin: 0 0 0 20px
+        min-width: 150px
+        font-size: 16px
+        font-weight: 600
+        text-transform: uppercase
+        border-radius: 5px
+        background: #dcfff3
+        cursor: pointer
+        &:hover
+            color: #dcfff3
+            background: #333
