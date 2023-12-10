@@ -94,13 +94,23 @@ a
             width: 70%
             
 .single_event
+    border: 3px solid black
+    border-radius: 10px
+    display: grid
+    justify-content: center
+    text-align: center
+    .box
+        place-self: center
     .email_registration
-        margin: 20px 0 0 0
+        margin: 20px 0 20px 0
     label
+        justify-content: center
         display: flex
         font-weight: 700
         font-size: 1.25rem
         text-transform: uppercase
+       
+        
     input
         height: 40px
         min-width: 350px
@@ -123,3 +133,6 @@ a
         &:hover
             color: #dcfff3
             background: #333
+
+.invalidEmail
+    color: red
