@@ -1,15 +1,18 @@
 import SingleEvents from '@/src/components/events/single-events'
-
-const EventPage = ({data}) => {
+import { ref, get } from 'firebase/database'
+import { database } from '@/utils/firebase'
+const EventPage = ({ data }) => {
     return (
-     <SingleEvents data={data} />
+        <SingleEvents data={data} />
     )
- }
- export default EventPage
+}
+export default EventPage
 
- export async function getStaticPaths() {
-    const data = await import('/data/data.json');
-    const allEvents = data.allEvents
+const allEventsRef = ref(database, 'allEvents')
+const snapshot = await get(allEventsRef)
+const allEvents = snapshot.val()
+export async function getStaticPaths() {
+    // const data = await import('/data/data.json');
     const allPaths = allEvents.map((path) => {
         return {
             params: {
@@ -22,13 +25,13 @@ const EventPage = ({data}) => {
         paths: allPaths,
         fallback: false
     }
- }
+}
 
- export async function getStaticProps(context){
+export async function getStaticProps(context) {
+    // const {allEvents} = await import('/data/data.json')
     const id = context?.params.id;
-    const {allEvents} = await import('/data/data.json')
     const eventData = allEvents.find(ev => (id === ev.id))
     return {
-        props: {data: eventData}
+        props: { data: eventData }
     }
- }
+}

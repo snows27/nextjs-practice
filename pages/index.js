@@ -1,6 +1,9 @@
 import Head from 'next/head'
-import {HomePage} from '@/src/components/home/home-page'
-export default function Home({data}) {
+import { HomePage } from '@/src/components/home/home-page'
+import { ref, get } from 'firebase/database'
+import { database } from '@/utils/firebase'
+
+export default function Home({ data }) {
   return (
     <div className="landPage">
       <Head>
@@ -10,17 +13,21 @@ export default function Home({data}) {
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
       </Head>
-      <HomePage data={data}/>
+      <HomePage data={data} />
     </div>
-    
+
   )
-  
+
 }
 export async function getServerSideProps() {
-  const {events_categories} = await import('@/data/data.json')
+
+  const events_categoriesRef = ref(database, 'events_categories')
+  const snapshot = await get(events_categoriesRef)
+  const events_categories = snapshot.val()
   return {
-      props: {
-          data: events_categories
-      }
+    props: {
+      data: events_categories
+    }
   }
 }
+

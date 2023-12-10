@@ -1,4 +1,6 @@
 import AllEvents from '@/src/components/events/events-page'
+import { ref, get } from "firebase/database";
+import { database } from '@/utils/firebase'
 
 
 const EventPage = ({data}) => {
@@ -7,7 +9,9 @@ const EventPage = ({data}) => {
  export default EventPage
 
 export async function getStaticProps() {
-    const {events_categories} = await import('/data/data.json')
+    const events_categoriesRef = ref(database, 'events_categories')
+    const snapshot = await get(events_categoriesRef)
+    const events_categories = snapshot.val()
     return {
         props: {
             data: events_categories
