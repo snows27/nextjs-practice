@@ -13,4 +13,5 @@ export const HomePage = ({data}) =>
           </div>
         </Link>)}
       </div>
+      
     )
